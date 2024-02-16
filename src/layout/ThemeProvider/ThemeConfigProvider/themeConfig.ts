@@ -16,6 +16,9 @@ const themeConfig: ThemeOptions = {
     fontWeightMedium: 500,
     fontWeightBold: 700,
   },
+  shape: {
+    borderRadius: 12,
+  },
 };
 
 export default themeConfig;

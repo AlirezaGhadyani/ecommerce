@@ -1,6 +1,7 @@
 import NextThemesProvider from "./NextThemesProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import ThemeConfigProvider from "./ThemeConfigProvider";
+import CssBaseline from "@mui/material/CssBaseline";
 
 export default function ThemeProvider(props: ChildrenComponent) {
   const { children } = props;
@@ -8,7 +9,10 @@ export default function ThemeProvider(props: ChildrenComponent) {
   return (
     <AppRouterCacheProvider>
       <NextThemesProvider>
-        <ThemeConfigProvider>{children}</ThemeConfigProvider>
+        <ThemeConfigProvider>
+          <CssBaseline />
+          {children}
+        </ThemeConfigProvider>
       </NextThemesProvider>
     </AppRouterCacheProvider>
   );
