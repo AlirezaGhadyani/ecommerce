@@ -21,11 +21,11 @@ export async function generateMetadata(props: PageParams): Promise<Metadata> {
     description: t("description"),
     keywords: t("keywords"),
     robots: "index, follow",
+    manifest: "",
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
-      images: t("openGraph.images"),
       url: process.env.NEXT_PUBLIC_APP_URL,
       siteName: `${process.env.NEXT_PUBLIC_APP_NAME}.com`,
       locale,
@@ -33,10 +33,15 @@ export async function generateMetadata(props: PageParams): Promise<Metadata> {
     twitter: {
       title: t("title"),
       description: t("description"),
-      images: t("openGraph.images"),
       card: "summary_large_image",
       site: `@${process.env.NEXT_PUBLIC_APP_NAME}`,
       creator: `@${process.env.NEXT_PUBLIC_APP_NAME}`,
+    },
+    alternates: {
+      languages: {
+        en: `${process.env.NEXT_PUBLIC_APP_URL}/en`,
+        fa: `${process.env.NEXT_PUBLIC_APP_URL}/fa`,
+      },
     },
   };
 }
