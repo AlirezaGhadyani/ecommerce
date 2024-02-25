@@ -1,7 +1,15 @@
+"use client";
+import { globalContext, GlobalContext } from "./globalContext";
 import ThemeProvider from "./ThemeProvider";
 
-export default function RootLayoutProvider(props: ChildrenComponent) {
-  const { children } = props;
+interface Props extends ChildrenComponent, GlobalContext {}
 
-  return <ThemeProvider>{children}</ThemeProvider>;
+export default function RootLayoutProvider(props: Props) {
+  const { children, ...restProps } = props;
+
+  return (
+    <globalContext.Provider value={{ ...restProps }}>
+      <ThemeProvider>{children}</ThemeProvider>
+    </globalContext.Provider>
+  );
 }
