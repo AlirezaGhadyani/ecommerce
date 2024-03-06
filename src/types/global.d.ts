@@ -7,6 +7,12 @@ interface ChildrenComponent {
 interface AppConfig {
   locales: Locale[];
   defaultLocale: Locale;
+  ui: {
+    admin: {
+      sidebarOpenWidth: number;
+      sidebarCloseWidth: number;
+    };
+  };
 }
 
 interface CommonPageParams {
